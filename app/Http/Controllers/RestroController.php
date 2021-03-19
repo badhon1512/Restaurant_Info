@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
 class RestroController extends Controller
@@ -22,8 +23,19 @@ class RestroController extends Controller
     {
 
 
+        $req->validate([
+            "name"=>'required',
+            "email"=>'required',
+            "address"=>'required'
+        ]);
 
-        return $req->input();
+        $restaurant=new Restaurant();
+        $restaurant->name=$req->name;
+        $restaurant->email=$req->email;
+        $restaurant->address=$req->address;
+
+        $restaurant->save();
+        return redirect('add');
     }
 
     function restaurantInfo()
