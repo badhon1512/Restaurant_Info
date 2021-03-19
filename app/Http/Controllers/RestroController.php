@@ -49,4 +49,26 @@ class RestroController extends Controller
         $restaurant->delete();
         return redirect('info');
     }
+
+    function update($id)
+    {
+        $restaurant=Restaurant::find($id);
+
+       // return $restaurant;
+       
+        return view("UpdateRestaurant",["restaurant"=>$restaurant]);
+    }
+
+    function updateRestaurant(Request $req)
+    {
+        $restaurant=Restaurant::find($req->id);
+        $restaurant->name=$req->name;
+        $restaurant->email=$req->email;
+        $restaurant->address=$req->address;
+        $restaurant->save();
+
+       // return $restaurant;
+       
+        return redirect('/info');
+    }
 }
