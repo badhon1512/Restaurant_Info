@@ -22,3 +22,5 @@ Route::get('/add',[RestroController::class,'showForm']);
 
 Route::get('/info',[RestroController::class,'restaurantInfo']);
 Route::post('/add',[RestroController::class,'addRestaurant']);
+
+Route::get('/delete/{name}',[RestroController::class,'delete']);

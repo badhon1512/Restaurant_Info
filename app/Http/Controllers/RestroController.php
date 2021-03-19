@@ -43,4 +43,10 @@ class RestroController extends Controller
         $restaurants=Restaurant::all();
         return view("RestaurantInformation",["restaurants"=>$restaurants]);
     }
+    function delete($id)
+    {
+        $restaurant=Restaurant::find($id);
+        $restaurant->delete();
+        return redirect('info');
+    }
 }
