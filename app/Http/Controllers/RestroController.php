@@ -40,6 +40,7 @@ class RestroController extends Controller
 
     function restaurantInfo()
     {
-        return view("RestaurantInformation");
+        $restaurants=Restaurant::all();
+        return view("RestaurantInformation",["restaurants"=>$restaurants]);
     }
 }
