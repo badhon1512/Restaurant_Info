@@ -13,4 +13,21 @@ class RestroController extends Controller
 
         return view("Home");
     }
+    function showForm()
+    {
+        return view("AddRestaurant");
+    }
+
+    function addRestaurant(Request $req)
+    {
+
+
+
+        return $req->input();
+    }
+
+    function restaurantInfo()
+    {
+        return view("RestaurantInformation");
+    }
 }

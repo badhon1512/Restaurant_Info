@@ -17,3 +17,8 @@ use App\Http\Controllers\RestroController;
 
 
 Route::get('/',[RestroController::class,'start']);
+
+Route::get('/add',[RestroController::class,'showForm']);
+
+Route::get('/info',[RestroController::class,'restaurantInfo']);
+Route::post('/add',[RestroController::class,'addRestaurant']);
